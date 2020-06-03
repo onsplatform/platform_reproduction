@@ -1,0 +1,53 @@
+Usuario ecolheu Taxa TEIFA Acum (id:123)
+
+CalculoAPI -> (<-ins_ant) PeriodoApuracao -> (<-ins_ant)Usina(ins_id:998)
+
+Usina(ins_id:998) -> (<-ins_ant-998)UnidadeGeradora (ins_id: 463, 452)
+UnidadeGerador(ins_id:463) -> (<-ins_ant-463)Parameto HDP (ins_id:532)
+UnidadeGerador(ins_id:463) -> (<-ins_ant-463)Parameto HP (ins_id:157)
+UnidadeGerador(ins_id:463) -> (<-ins_ant-463)Parameto HS (ins_id:783)
+
+UnidadeGerador(ins_id:452) -> (<-ins_ant-452)Parameto HDP (ins_id:936)
+UnidadeGerador(ins_id:452) -> (<-ins_ant-452)Parameto HP (ins_id:584)
+UnidadeGerador(ins_id:452) -> (<-ins_ant-452)Parameto HS (ins_id:178)
+
+Parameto HP (ins_id:157) -> (<-ins_ant-157)UnidadeGerador (ins_id:464)
+Parameto HP (ins_id:584) -> (<-ins_ant-584)UnidadeGerador (ins_id:453)
+
+UnidadeGerador (ins_id:464) -> (<-ins_ant-464)Usina (ins_id: 999)
+UnidadeGerador (ins_id:453) -> (<-ins_ant-453)Usina (ins_id: 100)
+
+Usina (ins_id: 100) -> (<-ins_ant-100)TEIP Mensal (ins_id: 124)
+		    -> (<-ins_ant-100)TEIFA Mensal (ins_id: 352)
+
+TEIFA Mensal (ins_id: 352) -> (<-ins_ant-352)Usina (ins_id: 799)
+
+Usina (ins_id: 799) -> (<-ins_ant-799)TEIP Acum (ins_id: 324) 
+                    -> (<-ins_ant-799)TEIFA Acum (ins_id: 452) -> Gerou Taxa TEIFA Acum (id:123)
+
+TEIFA Acum (ins_id: 452) -> (<-ins_ant-452)Usina (ins_id: 789)
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
