@@ -17,11 +17,9 @@ class ReproductionExecutor:
         self.reproduction_exec = ProcessQueue(reproduction_queue, solution, settings)
 
     def reproduce(self, solution):
-        import pdb;pdb.set_trace()
         method_frame, header_frame, body = self.reproduction_check.check_next_message()
         if body:
             print(" [ ] Can it reproduce? %r" % body)
-            event = json.loads(body)
             if not self.schema.is_reproducing(solution['id']):
                 self.reproduction_check.close()
                 method_frame, header_frame, body = self.reproduction_exec.dequeue()
