@@ -1,0 +1,25 @@
+FROM python:3.7-stretch
+
+RUN apt-get -y update && apt-get -y upgrade && apt-get install git -y cron
+
+RUN git clone https://github.com/onsplatform/platform_reproduction.git /var/cron/reproduction
+
+WORKDIR /var/cron/reproduction
+
+RUN mkdir /var/cron/reproduction/log
+
+RUN pip install pipenv
+RUN pipenv install
+
+RUN cp /var/cron/reproduction/deploy/crontab_entrypoint.sh /crontab_entrypoint.sh
+RUN cp /var/cron/reproduction/deploy/reproduction.sh /reproduction.sh
+
+RUN chmod +x /crontab_entrypoint.sh
+RUN chmod +x /reproduction.sh
+
+RUN /crontab_entrypoint.sh
+
+RUN crontab /var/cron/reproduction/scheduler.txt
+RUN touch /var/cron/reproduction/log/reproduction_cron.log
+
+CMD cron && tail -f /var/cron/reproduction/log/reproduction_cron.log
