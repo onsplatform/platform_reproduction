@@ -9,7 +9,7 @@ def construct_blueprint(process_memory_api):
     @reproduction_blueprint.route('/execute', methods=['POST'])
     def execute():
         reproduction_id = request.json['reproductionId']
-        instances = request.json['instances']
+        instances = request.json['instancesIds']
         solution = request.json['solution']
         process_queue = ProcessQueue(reproduction_queue, solution, PROCESS_SETTINGS)
         for instance in instances:
