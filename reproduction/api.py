@@ -16,6 +16,7 @@ def construct_blueprint(process_memory_api):
             event = process_memory_api.get_event(instance)
             event['scope'] = 'reproduction'
             event['reproduction'] = {
+                'from': request.json['instanceId'],
                 'instanceId': instance,
                 'reproduction_id': reproduction_id
             }
